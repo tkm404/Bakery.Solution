@@ -40,7 +40,7 @@ namespace Bakery.Models
       {
         int priceOf = PastryCart[index].Price;
         int itemNumber = PastryCart[index].Item;
-        AllPastryTotal += Bread.Buy2Get1(priceOf, itemNumber);
+        AllPastryTotal += Pastry.Buy3Get1(priceOf, itemNumber);
       }
       return AllPastryTotal;
     }
