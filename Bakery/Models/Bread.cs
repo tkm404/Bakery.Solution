@@ -34,9 +34,8 @@ namespace Bakery.Models
       int totalPrice = 0;
       for (int index = 0; index < _breadCart.Count; index++)
       {
-      totalPrice += Bread.Loaf.Buy2Get1();
+      totalPrice += _breadCart.Loaf.Buy2Get1();
       }
-      return totalPrice;
     }
 
     public static void ClearAll()
