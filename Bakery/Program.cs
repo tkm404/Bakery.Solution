@@ -35,7 +35,7 @@ namespace Bakery
         PastryEnter();
         int totalP = Pastry.AllPastryPrice();
         Console.WriteLine($"A total of ${totalP}.");
-        PastrySaleMessage();
+        // PastrySaleMessage();
         Console.WriteLine("Your grand total for today is...");
         int total = Bread.AllBreadPrice();
         int totalPa = Pastry.AllPastryPrice();
@@ -81,7 +81,7 @@ namespace Bakery
         Console.WriteLine($"{breadNumber} loaves, huh? that will run you...");
          int total = Bread.AllBreadPrice();
         Console.WriteLine($"A total of ${total}.");
-        BreadSaleMessage();
+        // BreadSaleMessage();
       }
       catch
       {
@@ -98,17 +98,17 @@ namespace Bakery
       }
     }
 
-    static string BreadSaleMessage()
-    {
-      if (Bread.AllBreadPrice() % 10 == 0)
-      {
-        return "That's $5 off every third loaf! Thank you!";
-      }
-      else
-      {
-        return "Thank you.";
-      }
-    }
+    // static string BreadSaleMessage()
+    // {
+    //   if (Bread.AllBreadPrice() % 10 == 0)
+    //   {
+    //     return "That's $5 off every third loaf! Thank you!";
+    //   }
+    //   else
+    //   {
+    //     return "Thank you.";
+    //   }
+    // }
 
     static void MakePastries(int pastryNumber)
     {
@@ -117,17 +117,17 @@ namespace Bakery
         Pastry newPastry = new Pastry(2, i);
       }
     }
-    static string PastrySaleMessage()
-    {
-      if (Pastry.AllPastryPrice() % 3 == 0)
-      {
-        return "That's $2 off every fourth pastry! Thank you!";
-      }
-      else
-      {
-        return "Thank you.";
-      }
-    }
+    // static string PastrySaleMessage()
+    // {
+    //   if (Pastry.AllPastryPrice() % 3 == 0)
+    //   {
+    //     return "That's $2 off every fourth pastry! Thank you!";
+    //   }
+    //   else
+    //   {
+    //     return "Thank you.";
+    //   }
+    // }
 
     static void PastryEnter()
     {
