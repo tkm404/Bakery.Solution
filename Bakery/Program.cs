@@ -8,7 +8,7 @@ namespace Bakery
   {
     static void Main()
     {
-    RunBakery();
+      RunBakery();
     }
     static void RunBakery()
     {
@@ -29,7 +29,7 @@ namespace Bakery
       Console.WriteLine("So, what'll it be, stranger?");
       LoafEnter();
       int total = Bread.AllBreadPrice();
-      Console.WriteLine($"A total of {total}.");
+      Console.WriteLine($"A total of ${total}.");
       BreadSaleMessage();
       Console.WriteLine("How about some pastries? (y/n)");
       string proceed = Console.ReadLine();
@@ -37,27 +37,37 @@ namespace Bakery
       {
         PastryEnter();
         int totalP = Pastry.AllPastryPrice();
-        Console.WriteLine($"A total of {totalP}.");
+        Console.WriteLine($"A total of ${totalP}.");
         PastrySaleMessage();
+        Console.WriteLine("Your grand total for today is...");
+        int grandTotal = total + Pastry.AllPastryPrice();
+        Console.WriteLine($"... ${grandTotal}! What a haul!");
+        Console.WriteLine("Thank you for stopping by! Have a great rest of your day.");
+        Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
+        string restart = Console.ReadLine();
+        if (restart.ToLower() == "y")
+        {
+          RunBakery();
+        }
+        else
+        {
+          Console.WriteLine("Closing up for today! See you tomorrow!");
+        }
       }
       else
       {
-        Console.WriteLine($"Alrighty, Your grand total for today is {total}!");
+        Console.WriteLine($"Alrighty, Your grand total for today is ${total}!");
         Console.WriteLine("Have a nice day, now!");
-      }
-      Console.WriteLine("Your grand total for today is...");
-      int grandTotal = total + Pastry.AllPastryPrice();
-      Console.WriteLine($"... {grandTotal}! What a haul!");
-      Console.WriteLine("Thank you for stopping by! Have a great rest of your day.");
-      Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
-      string restart = Console.ReadLine();
-      if (restart.ToLower() == "y")
-      {
-        RunBakery();
-      }
-      else
-      {
-        Console.WriteLine("Closing up for today! See you tomorrow!");
+        Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
+        string reset = Console.ReadLine();
+        if (reset.ToLower() == "y")
+        {
+          RunBakery();
+        }
+        else
+        {
+          Console.Write("Closing down early today. See you next time!");
+        }
       }
     }
 
@@ -70,7 +80,7 @@ namespace Bakery
         MakeLoaves(breadNumber);
         Console.WriteLine($"{breadNumber} loaves, huh? that will run you...");
       }
-  catch
+      catch
       {
         Console.WriteLine("I'm not sure what number that is. Run that by me again?");
         LoafEnter();
@@ -79,9 +89,9 @@ namespace Bakery
 
     static void MakeLoaves(int breadNumber)
     {
-      for (int i = 0; i <= breadNumber; i++) 
+      for (int i = 0; i <= breadNumber; i++)
       {
-        Bread newBread = new Bread(5, i); 
+        Bread newBread = new Bread(5, i);
       }
     }
 
@@ -104,7 +114,7 @@ namespace Bakery
         Pastry newPastry = new Pastry(2, i);
       }
     }
-static string PastrySaleMessage()
+    static string PastrySaleMessage()
     {
       if (Pastry.AllPastryPrice() % 3 == 0)
       {
@@ -125,7 +135,7 @@ static string PastrySaleMessage()
         MakePastries(pastryNumber);
         Console.WriteLine($"{pastryNumber} pastries, right? that'll be...");
       }
-  catch
+      catch
       {
         Console.WriteLine("I'm not sure what number that is. Run that by me again?");
         PastryEnter();
