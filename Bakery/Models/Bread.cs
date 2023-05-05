@@ -25,7 +25,7 @@ namespace Bakery.Models
       } 
       else
       {
-        return priceOf;
+        return Price;
       }
     }
   }
