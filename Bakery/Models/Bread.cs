@@ -6,14 +6,14 @@ namespace Bakery.Models
   public class Bread
   {
     //Bread has price and number of units, with every third unit free.
-    public int price { get; set; }
-    public int loaf { get; set; }
+    public int Price { get; set; }
+    public int Loaf { get; set; }
     private static List<Bread> _breadCart = new List<Bread> {};
 
     public Bread(int priceOf, int loafNumber)
     {
-      price = priceOf;
-      loaf = loafNumber;
+      Price = priceOf;
+      Loaf = loafNumber;
       _breadCart.Add(this);
     }
 
