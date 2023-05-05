@@ -51,5 +51,12 @@ namespace Bakery.Tests
     Assert.AreEqual(newLoaf, newBread.Loaf);
   }
     
+    [TestMethod]
+    public void Buy2Get1_DeterminesIfALoafIsFree_Int()
+    {
+      Bread newBread = new Bread(5, 3);
+      int salePrice = newBread.Buy2Get1();
+      Assert.AreEqual(0, salePrice);
+    }
   }
 }
