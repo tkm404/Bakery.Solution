@@ -38,6 +38,7 @@ namespace Bakery
         PastryEnter();
         int totalP = Pastry.AllPastryPrice();
         Console.WriteLine($"A total of {totalP}.");
+        PastrySaleMessage();
       }
       else
       {
@@ -47,7 +48,17 @@ namespace Bakery
       Console.WriteLine("Your grand total for today is...");
       int grandTotal = total + Pastry.AllPastryPrice();
       Console.WriteLine($"... {grandTotal}! What a haul!");
-      
+      Console.WriteLine("Thank you for stopping by! Have a great rest of your day.");
+      Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
+      string restart = Console.ReadLine();
+      if (restart.ToLower() == "y")
+      {
+        RunBakery();
+      }
+      else
+      {
+        Console.WriteLine("Closing up for today! See you tomorrow!");
+      }
     }
 
     static void LoafEnter()
@@ -91,6 +102,17 @@ namespace Bakery
       for (int i = 0; i <= pastryNumber; i++)
       {
         Pastry newPastry = new Pastry(2, i);
+      }
+    }
+static string PastrySaleMessage()
+    {
+      if (Pastry.AllPastryPrice() % 3 == 0)
+      {
+        return "That's $2 off every fourth pastry! Thank you!";
+      }
+      else
+      {
+        return "Thank you.";
       }
     }
 
