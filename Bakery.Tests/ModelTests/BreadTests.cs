@@ -71,7 +71,7 @@ namespace Bakery.Tests
       Bread baguette = new Bread(5, 2);
       Bread como = new Bread(5, 3);
       int expected = 10;
-      int actualResult = _breadCart.ShowAll();
+      int actualResult = Bread.ShowAll();
       Assert.AreEqual(expected, actualResult); 
     }
   }

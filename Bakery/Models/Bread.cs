@@ -29,13 +29,14 @@ namespace Bakery.Models
       }
     }
 
-    public static void ShowCart()
+    public static int ShowCart()
     {
       int totalPrice = 0;
       for (int index = 0; index < _breadCart.Count; index++)
       {
       totalPrice += _breadCart.Loaf.Buy2Get1();
       }
+      return totalPrice;
     }
 
     public static void ClearAll()
