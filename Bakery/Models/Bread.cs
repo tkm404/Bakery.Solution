@@ -8,16 +8,16 @@ namespace Bakery.Models
     //Bread has price and number of units, with every third unit free.
     public int Price { get; set; }
     public int Loaf { get; set; }
-    private static List<Bread> _breadCart = new List<Bread> {};
+    public static List<Bread> BreadCart = new List<Bread> {};
 
     public Bread(int priceOf, int loafNumber)
     {
       Price = priceOf;
       Loaf = loafNumber;
-      _breadCart.Add(this);
+      BreadCart.Add(this);
     }
 
-    public int Buy2Get1()
+    public int Buy2Get1(object Bread)
     {
       if (Loaf % 3 == 0)
       {
@@ -31,12 +31,12 @@ namespace Bakery.Models
 
     public static List<Bread> ShowCart()
     {
-      return _breadCart;
+      return BreadCart;
     }
 
     public static void ClearAll()
     {
-      _breadCart.Clear();
+      BreadCart.Clear();
     }
   }
 }
