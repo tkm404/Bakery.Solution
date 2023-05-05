@@ -6,7 +6,13 @@ using System;
 namespace Bakery.Tests
 {
   [TestClass]
-  public class BreadTests
+  public class BreadTests : IDisposable
+  {
+    public void Dispose()
+    {
+      Bread.ClearAll();
+    }
+  }
   {
     [TestMethod]
     public void BreadConstructor_CreatesInstanceOfBread_Bread()
@@ -57,6 +63,17 @@ namespace Bakery.Tests
       Bread newBread = new Bread(5, 3);
       int salePrice = newBread.Buy2Get1();
       Assert.AreEqual(0, salePrice);
+    }
+
+    [TestMethod]
+    public void ShowCart_ReturnsPriceOfAllLoavesInCart_Int()
+    {
+      Bread round = new Bread(5, 1);
+      Bread baguette = new Bread(5, 2);
+      Bread como = new Bread(5, 3);
+      int expected = 10;
+      int actualResult = ShowCart(List<Bread> _breadCart);
+      Assert.AreEqual(expected, actualResult); 
     }
   }
 }

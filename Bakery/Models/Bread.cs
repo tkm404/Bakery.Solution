@@ -28,5 +28,9 @@ namespace Bakery.Models
         return Price;
       }
     }
+    public static void ClearAll()
+    {
+      _breadCart.Clear();
+    }
   }
 }
