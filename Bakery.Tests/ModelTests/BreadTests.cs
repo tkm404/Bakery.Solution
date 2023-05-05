@@ -56,13 +56,13 @@ namespace Bakery.Tests
     Assert.AreEqual(newLoaf, newBread.Loaf);
     }
     
-    [TestMethod]
-    public void Buy2Get1_DeterminesIfALoafIsFree_Int()
-    {
-      Bread newBread = new Bread(5, 3);
-      int salePrice = newBread.Buy2Get1();
-      Assert.AreEqual(0, salePrice);
-    }
+    // [TestMethod]
+    // public void Buy2Get1_DeterminesIfALoafIsFree_Int()
+    // {
+    //   Bread newBread = new Bread(5, 3);
+    //   int salePrice = newBread.Buy2Get1();
+    //   Assert.AreEqual(0, salePrice);
+    // }
 
     [TestMethod]
     public void ShowCart_ShowsAllBreadInstances_List()
@@ -75,15 +75,15 @@ namespace Bakery.Tests
       CollectionAssert.AreEqual(expected, actualResult);
     }
 
-    // [TestMethod]
-    // public void ShowCart_ReturnsPriceOfAllLoavesInCart_Int()
-    // {
-    //   Bread round = new Bread(5, 1);
-    //   Bread baguette = new Bread(5, 2);
-    //   Bread como = new Bread(5, 3);
-    //   int expected = 10;
-    //   int actualResult = Bread.ShowAll();
-    //   Assert.AreEqual(expected, actualResult); 
-    // }
+    [TestMethod]
+    public void AllPrice_ReturnsPriceOfAllLoavesInCart_Int()
+    {
+      Bread bread1 = new Bread(5, 1);
+      Bread bread2 = new Bread(5, 2);
+      Bread bread3 = new Bread(5, 3);
+      int expected = 10;
+      int actualResult = Bread.AllBreadPrice();
+      Assert.AreEqual(expected, actualResult); 
+    }
   }
 }
