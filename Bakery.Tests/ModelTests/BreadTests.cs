@@ -65,14 +65,25 @@ namespace Bakery.Tests
     }
 
     [TestMethod]
-    public void ShowCart_ReturnsPriceOfAllLoavesInCart_Int()
+    public void ShowCart_ShowsAllBreadInstances_List()
     {
       Bread round = new Bread(5, 1);
       Bread baguette = new Bread(5, 2);
-      Bread como = new Bread(5, 3);
-      int expected = 10;
-      int actualResult = Bread.ShowAll();
-      Assert.AreEqual(expected, actualResult); 
+      Bread como = new Bread(5,3);
+      List<Bread> expected = new List<Bread> { round, baguette, como };
+      List<Bread> actualResult = Bread.ShowCart();
+      CollectionAssert.AreEqual(expected, actualResult);
     }
+
+    // [TestMethod]
+    // public void ShowCart_ReturnsPriceOfAllLoavesInCart_Int()
+    // {
+    //   Bread round = new Bread(5, 1);
+    //   Bread baguette = new Bread(5, 2);
+    //   Bread como = new Bread(5, 3);
+    //   int expected = 10;
+    //   int actualResult = Bread.ShowAll();
+    //   Assert.AreEqual(expected, actualResult); 
+    // }
   }
 }
