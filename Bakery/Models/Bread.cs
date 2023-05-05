@@ -17,17 +17,17 @@ namespace Bakery.Models
       BreadCart.Add(this);
     }
 
-    // public int Buy2Get1(int priceOf, int loafNumber)
-    // {
-    //   if (Loaf % 3 == 0)
-    //   {
-    //     return 0;
-    //   } 
-    //   else
-    //   {
-    //     return Price;
-    //   }
-    // }
+    public static int Buy2Get1(int priceOf, int loafNumber)
+    {
+      if (loafNumber % 3 == 0)
+      {
+        return 0;
+      } 
+      else
+      {
+        return priceOf;
+      }
+    }
 
     public static List<Bread> ShowCart()
     {
@@ -41,15 +41,9 @@ namespace Bakery.Models
       {
         int priceOf = BreadCart[index].Price;
         int loafNumber = BreadCart[index].Loaf;
-        if (loafNumber % 3 == 0)
-        {
-          return AllBreadTotal + 0;
-        }
-        else
-        {
-          return AllBreadTotal += priceOf;
-        }
+        AllBreadTotal += Bread.Buy2Get1(priceOf, loafNumber);
       }
+      return AllBreadTotal;
     }
 
     public static void ClearAll()
