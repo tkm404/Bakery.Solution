@@ -12,8 +12,7 @@ namespace Bakery.Tests
     {
       Bread.ClearAll();
     }
-  }
-  {
+
     [TestMethod]
     public void BreadConstructor_CreatesInstanceOfBread_Bread()
     {
@@ -50,12 +49,12 @@ namespace Bakery.Tests
 
     [TestMethod]
     public void SetLoafSingle_SetsLoafNumber_Void()
-  {
+    {
     Bread newBread = new Bread(5, 1);
     int newLoaf = 2;
     newBread.Loaf = newLoaf;
     Assert.AreEqual(newLoaf, newBread.Loaf);
-  }
+    }
     
     [TestMethod]
     public void Buy2Get1_DeterminesIfALoafIsFree_Int()
@@ -72,7 +71,7 @@ namespace Bakery.Tests
       Bread baguette = new Bread(5, 2);
       Bread como = new Bread(5, 3);
       int expected = 10;
-      int actualResult = ShowCart(List<Bread> _breadCart);
+      int actualResult = Bread.ShowAll();
       Assert.AreEqual(expected, actualResult); 
     }
   }
