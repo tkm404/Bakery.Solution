@@ -24,5 +24,13 @@ namespace Bakery.Tests
       Assert.AreEqual(result, priceOf);
     }
 
+    [TestMethod]
+    public void SetPriceSingle_SetsValueOfPrice_Void()
+    {
+      Bread newBread = new Bread(5, 1);
+      int newPrice = 6;
+      newBread.Price = newPrice;
+      Assert.AreEqual(newPrice, newBread.Price);
+    }
   }
 }
