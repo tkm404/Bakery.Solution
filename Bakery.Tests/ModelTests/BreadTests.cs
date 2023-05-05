@@ -18,9 +18,10 @@ namespace Bakery.Tests
     [TestMethod]
     public void GetPriceSingle_ReturnsPrice_Int()
     {
-      int priceOf = 5
+      int priceOf = 5;
       Bread newBread = new Bread(priceOf, 1);
       int result = newBread.Price;
+      Assert.AreEqual(result, priceOf);
     }
 
   }
