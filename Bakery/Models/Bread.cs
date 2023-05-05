@@ -28,6 +28,17 @@ namespace Bakery.Models
         return Price;
       }
     }
+
+    public static void ShowCart()
+    {
+      int totalPrice = 0;
+      for (int index = 0; index < _breadCart.Count; index++)
+      {
+      totalPrice += Bread.Loaf.Buy2Get1();
+      }
+      return totalPrice;
+    }
+
     public static void ClearAll()
     {
       _breadCart.Clear();
