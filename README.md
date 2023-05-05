@@ -9,6 +9,7 @@
 C#
 SQL
 .NET 6.0
+MSTest
 
 ## Description
 A user should be able to tell how much bread and pasty is worth, be informed about special offers, and then enter an amount for bread and/or pastry. Based on how many units they order, they will be shown how much they owe, sans any "buy-two-get-one-free" type of deals (i.e. if they get two loaves of bread for $10, they get the third one free; not for $15). The user should be welcomed upon launching the app, and any non-integers or unexpected entries should be handled with an error statement. The app should restart from a certain point, instead of canceling at end of run or in event of an error.
