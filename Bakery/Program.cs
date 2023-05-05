@@ -28,6 +28,7 @@ namespace Bakery
       Console.WriteLine("~~~~~~~~~....~~~~~~~~~....~~~~~~~~~....~~~~~~~~");
       Console.WriteLine("So, what'll it be, stranger?");
       LoafEnter();
+      CheckPoint();
       Console.WriteLine("How about some pastries? (y/n)");
       string proceed = Console.ReadLine();
       if (proceed.ToLower() == "y")
@@ -53,7 +54,11 @@ namespace Bakery
           Console.WriteLine("Closing up for today! See you tomorrow!");
         }
       }
-      else
+      else if (proceed.ToLower() != "n")
+      {
+        Console.WriteLine("Uh... pardon? Was that a 'y' or an 'n'?");
+        CheckPoint();
+      }
       {
         int total = Bread.AllBreadPrice();
         Console.WriteLine($"Alrighty, Your grand total for today is ${total}!");
@@ -144,5 +149,10 @@ namespace Bakery
         PastryEnter();
       }
     }
+    static void CheckPoint()
+    {
+      Console.WriteLine("What next?");
+    }
+    
   }
 }
