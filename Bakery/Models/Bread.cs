@@ -17,5 +17,16 @@ namespace Bakery.Models
       _breadCart.Add(this);
     }
 
+    public int Buy2Get1()
+    {
+      if (Loaf % 3 == 0)
+      {
+        return 0;
+      } 
+      else
+      {
+        return priceOf;
+      }
+    }
   }
 }
