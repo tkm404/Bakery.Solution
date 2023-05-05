@@ -28,9 +28,6 @@ namespace Bakery
       Console.WriteLine("~~~~~~~~~....~~~~~~~~~....~~~~~~~~~....~~~~~~~~");
       Console.WriteLine("So, what'll it be, stranger?");
       LoafEnter();
-      int total = Bread.AllBreadPrice();
-      Console.WriteLine($"A total of ${total}.");
-      BreadSaleMessage();
       Console.WriteLine("How about some pastries? (y/n)");
       string proceed = Console.ReadLine();
       if (proceed.ToLower() == "y")
@@ -40,7 +37,9 @@ namespace Bakery
         Console.WriteLine($"A total of ${totalP}.");
         PastrySaleMessage();
         Console.WriteLine("Your grand total for today is...");
-        int grandTotal = total + Pastry.AllPastryPrice();
+        int total = Bread.AllBreadPrice();
+        int totalPa = Pastry.AllPastryPrice();
+        int grandTotal = (total + totalPa);
         Console.WriteLine($"... ${grandTotal}! What a haul!");
         Console.WriteLine("Thank you for stopping by! Have a great rest of your day.");
         Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
@@ -56,6 +55,7 @@ namespace Bakery
       }
       else
       {
+        int total = Bread.AllBreadPrice();
         Console.WriteLine($"Alrighty, Your grand total for today is ${total}!");
         Console.WriteLine("Have a nice day, now!");
         Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
@@ -79,6 +79,9 @@ namespace Bakery
         int breadNumber = Convert.ToInt32(Console.ReadLine());
         MakeLoaves(breadNumber);
         Console.WriteLine($"{breadNumber} loaves, huh? that will run you...");
+         int total = Bread.AllBreadPrice();
+        Console.WriteLine($"A total of ${total}.");
+        BreadSaleMessage();
       }
       catch
       {
