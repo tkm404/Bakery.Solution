@@ -41,5 +41,15 @@ namespace Bakery.Tests
       int result = newBread.Loaf;
       Assert.AreEqual(result, loafNumber);
     }
+
+    [TestMethod]
+    public void SetLoafSingle_SetsLoafNumber_Void()
+  {
+    Bread newBread = new Bread(5, 1);
+    int newLoaf = 2;
+    newBread.Loaf = newLoaf;
+    Assert.AreEqual(newLoaf, newBread.Loaf);
+  }
+    
   }
 }
