@@ -32,10 +32,11 @@ namespace Bakery
       Console.WriteLine("How about some pastries? (y/n)");
       string proceed = Console.ReadLine();
       int total = Bread.AllBreadPrice();
-      int totalP = Pastry.AllPastryPrice();
+      // int totalP = Pastry.AllPastryPrice();
       if (proceed.ToLower() == "y")
       {
         PastryEnter();
+        int totalP = Pastry.AllPastryPrice();
         Console.WriteLine($"A total of ${totalP}.");
         // PastrySaleMessage();
         Console.WriteLine("Your grand total for today is...");
