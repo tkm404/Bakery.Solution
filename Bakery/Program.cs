@@ -28,19 +28,18 @@ namespace Bakery
       Console.WriteLine("~~~~~~~~~....~~~~~~~~~....~~~~~~~~~....~~~~~~~~");
       Console.WriteLine("So, what'll it be, stranger?");
       LoafEnter();
-      CheckPoint();
+      // CheckPoint();
       Console.WriteLine("How about some pastries? (y/n)");
       string proceed = Console.ReadLine();
+      int total = Bread.AllBreadPrice();
+      int totalP = Pastry.AllPastryPrice();
       if (proceed.ToLower() == "y")
       {
         PastryEnter();
-        int totalP = Pastry.AllPastryPrice();
         Console.WriteLine($"A total of ${totalP}.");
         // PastrySaleMessage();
         Console.WriteLine("Your grand total for today is...");
-        int total = Bread.AllBreadPrice();
-        int totalPa = Pastry.AllPastryPrice();
-        int grandTotal = (total + totalPa);
+        int grandTotal = (total + totalP);
         Console.WriteLine($"... ${grandTotal}! What a haul!");
         Console.WriteLine("Thank you for stopping by! Have a great rest of your day.");
         Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
@@ -52,26 +51,41 @@ namespace Bakery
         else
         {
           Console.WriteLine("Closing up for today! See you tomorrow!");
+          Console.Write("~~~~~~~~~....~~~~~~~~~....~~~~~~~~~....~~~~~~~~");
         }
       }
       else if (proceed.ToLower() != "n")
       {
-        Console.WriteLine("Uh... pardon? Was that a 'y' or an 'n'?");
-        CheckPoint();
+        Console.WriteLine("Uh... pardon? I'll just assume you don't want pastries, then.");
+        // CheckPoint();
+        Console.WriteLine($"So in that case, your grand total for today is ${total}!");
+        Console.WriteLine("Thank you for your patronage. Have a great day!");
+        Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
+        string restart = Console.ReadLine();
+        if (restart.ToLower() == "y")
+        {
+          RunBakery();
+        }
+        else
+        {
+          Console.Write("Closing time! See you later!");
+          Console.Write("~~~~~~~~~....~~~~~~~~~....~~~~~~~~~....~~~~~~~~");
+        }
       }
+      else
       {
-        int total = Bread.AllBreadPrice();
         Console.WriteLine($"Alrighty, Your grand total for today is ${total}!");
         Console.WriteLine("Have a nice day, now!");
         Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
-        string reset = Console.ReadLine();
-        if (reset.ToLower() == "y")
+        string restart = Console.ReadLine();
+        if (restart.ToLower() == "y")
         {
           RunBakery();
         }
         else
         {
           Console.Write("Closing down early today. See you next time!");
+          Console.Write("~~~~~~~~~....~~~~~~~~~....~~~~~~~~~....~~~~~~~~");
         }
       }
     }
@@ -149,10 +163,10 @@ namespace Bakery
         PastryEnter();
       }
     }
-    static void CheckPoint()
-    {
-      Console.WriteLine("What next?");
-    }
-    
+
+    // static void CheckPoint()
+    // {
+    //   Console.WriteLine("What next?");
+    // }
   }
 }
