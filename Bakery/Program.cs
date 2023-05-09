@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Bakery.Models;
 
 namespace Bakery
@@ -28,17 +27,14 @@ namespace Bakery
       Console.WriteLine("~~~~~~~~~....~~~~~~~~~....~~~~~~~~~....~~~~~~~~");
       Console.WriteLine("So, what'll it be, stranger?");
       LoafEnter();
-      // CheckPoint();
       Console.WriteLine("How about some pastries? (y/n)");
       string proceed = Console.ReadLine();
       int total = Bread.AllBreadPrice();
-      // int totalP = Pastry.AllPastryPrice();
       if (proceed.ToLower() == "y")
       {
         PastryEnter();
         int totalP = Pastry.AllPastryPrice();
         Console.WriteLine($"A total of ${totalP}.");
-        // PastrySaleMessage();
         Console.WriteLine("Your grand total for today is...");
         int grandTotal = (total + totalP);
         Console.WriteLine($"... ${grandTotal}! What a haul!");
@@ -58,7 +54,6 @@ namespace Bakery
       else if (proceed.ToLower() != "n")
       {
         Console.WriteLine("Uh... pardon? I'll just assume you don't want pastries, then.");
-        // CheckPoint();
         Console.WriteLine($"So in that case, your grand total for today is ${total}!");
         Console.WriteLine("Thank you for your patronage. Have a great day!");
         Console.WriteLine("Next Customer, please! (enter 'y' to restart or 'n' to exit)");
@@ -101,7 +96,6 @@ namespace Bakery
         Console.WriteLine($"{breadNumber} loaves, huh? that will run you...");
          int total = Bread.AllBreadPrice();
         Console.WriteLine($"A total of ${total}.");
-        // BreadSaleMessage();
       }
       catch
       {
@@ -118,18 +112,6 @@ namespace Bakery
       }
     }
 
-    // static string BreadSaleMessage()
-    // {
-    //   if (Bread.AllBreadPrice() % 10 == 0)
-    //   {
-    //     return "That's $5 off every third loaf! Thank you!";
-    //   }
-    //   else
-    //   {
-    //     return "Thank you.";
-    //   }
-    // }
-
     static void MakePastries(int pastryNumber)
     {
       for (int i = 0; i <= pastryNumber; i++)
@@ -137,17 +119,6 @@ namespace Bakery
         Pastry newPastry = new Pastry(2, i);
       }
     }
-    // static string PastrySaleMessage()
-    // {
-    //   if (Pastry.AllPastryPrice() % 3 == 0)
-    //   {
-    //     return "That's $2 off every fourth pastry! Thank you!";
-    //   }
-    //   else
-    //   {
-    //     return "Thank you.";
-    //   }
-    // }
 
     static void PastryEnter()
     {
@@ -164,10 +135,5 @@ namespace Bakery
         PastryEnter();
       }
     }
-
-    // static void CheckPoint()
-    // {
-    //   Console.WriteLine("What next?");
-    // }
   }
 }
